@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.smitcoderx.learn.xceltecproject.ui.login.LoginViewModel" />
+
+        <variable
+            name="handler"
+            type="com.smitcoderx.learn.xceltecproject.ui.login.LoginHandler" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginActivity">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ex_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="https://assets3.lottiefiles.com/packages/lf20_qmfs6c3i.json" />
+
+        <TextView
+            android:id="@+id/ex_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:gravity="start"
+            android:padding="10dp"
+            android:text="@string/extra"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/poppins"
+            android:padding="10dp"
+            android:text="@string/label_login"
+            android:textColor="@color/black"
+            android:textSize="38sp"
+            app:layout_constraintBottom_toTopOf="@id/et_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="40dp"
+            android:hint="@string/hint_username"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:text="@={viewModel.username}"
+            app:layout_constraintBottom_toTopOf="@+id/et_password"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="40dp"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:text="@={viewModel.password}"
+            app:layout_constraintBottom_toTopOf="@+id/b_login" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b_login"
+            style="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/btn_rounded"
+            android:drawableEnd="@drawable/login_drawable"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:onClick="@{()->handler.onLoginClicked()}"
+            android:padding="10dp"
+            android:text="@string/action_login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/et_password"
+            app:layout_constraintStart_toStartOf="@id/et_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

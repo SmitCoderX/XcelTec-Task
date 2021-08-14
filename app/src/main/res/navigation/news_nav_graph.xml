@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_nav_graph"
+    app:startDestination="@id/itFragment">
+
+    <fragment
+        android:id="@+id/itFragment"
+        android:name="com.smitcoderx.learn.xceltecproject.ui.fragments.it.ItFragment"
+        android:label="fragment_it"
+        tools:layout="@layout/fragment_it" />
+    <fragment
+        android:id="@+id/latestFragment"
+        android:name="com.smitcoderx.learn.xceltecproject.ui.fragments.Latest.LatestFragment"
+        android:label="fragment_latest"
+        tools:layout="@layout/fragment_latest" />
+</navigation>
